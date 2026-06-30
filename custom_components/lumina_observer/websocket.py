@@ -7,6 +7,7 @@ detection, and message parsing.
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 from typing import Any, Callable
 from urllib.parse import urlencode
@@ -128,7 +129,7 @@ class LuminaWebSocketClient:
             async with websockets.connect(url) as ws:
                 self._ws = ws
                 self._backoff = INITIAL_BACKOFF  # reset on success
-                self._last_message_time = asyncio.get_event_loop().time()
+                self._last_message_time = asyncio.get_running_loop().time()
 
                 if self._on_status_change:
                     self._on_status_change(True)
@@ -141,12 +142,12 @@ class LuminaWebSocketClient:
                 _LOGGER.info("Connected to Lumina Observer")
 
                 async for raw in ws:
-                    self._last_message_time = asyncio.get_event_loop().time()
+                    self._last_message_time = asyncio.get_running_loop().time()
                     try:
                         # websockets may yield str or bytes depending on version
                         if isinstance(raw, bytes):
                             raw = raw.decode("utf-8")
-                        msg = __import__("json").loads(raw)
+                        msg = json.loads(raw)
                     except Exception:
                         _LOGGER.warning("Failed to parse message: %s", raw)
                         continue
@@ -180,7 +181,7 @@ class LuminaWebSocketClient:
         try:
             while not self._shutdown:
                 await asyncio.sleep(HEARTBEAT_TIMEOUT)
-                elapsed = asyncio.get_event_loop().time() - self._last_message_time
+                elapsed = asyncio.get_running_loop().time() - self._last_message_time
                 if elapsed > HEARTBEAT_TIMEOUT and self._ws:
                     _LOGGER.warning(
                         "No message received for %ds, reconnecting...", int(elapsed)

@@ -6,6 +6,7 @@ lumina.observer for Australian and New Zealand aurora hunters.
 
 from __future__ import annotations
 
+import importlib
 import logging
 from collections.abc import Callable
 from datetime import datetime, timezone
@@ -18,9 +19,6 @@ from homeassistant.helpers.entity import DeviceInfo
 
 from .const import DOMAIN
 from .websocket import LuminaWebSocketClient
-
-# Pre-import platforms to avoid blocking import_module in the event loop
-from . import sensor, binary_sensor  # noqa: F401
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -124,6 +122,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = data
 
+    # Pre-load platform modules in executor to avoid blocking event loop
+    for platform in ("sensor", "binary_sensor"):
+        await hass.async_add_executor_job(
+            importlib.import_module, f"custom_components.lumina_observer.{platform}"
+        )
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     await data.client.connect()
 

@@ -6,7 +6,6 @@ from dataclasses import dataclass
 from typing import Any
 
 from homeassistant.components.sensor import (
-    SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
     SensorStateClass,
@@ -69,7 +68,6 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
         translation_key="solar_wind_speed",
         native_unit_of_measurement="km/s",
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.SPEED,
         icon="mdi:weather-windy",
         value_fn=lambda d: (
             d.conditions.get("solarWind", {}).get("speed")
