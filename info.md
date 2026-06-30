@@ -1,7 +1,5 @@
 # Lumina Observer
 
-<img width="48" src="https://brands.home-assistant.io/_/lumina_observer/icon.png" />
-
 Real-time aurora prediction for Australian & New Zealand aurora hunters, directly in Home Assistant.
 
 ## Features
@@ -10,7 +8,6 @@ Real-time aurora prediction for Australian & New Zealand aurora hunters, directl
 - 🚗 **Worth driving** binary sensor with go/no-go recommendation
 - ⚡ **Real-time streaming** via WebSocket — no polling
 - 🔄 **Automatic reconnection** with exponential backoff
-- 📍 **Multi-location** — monitor multiple observing sites
 
 ## Setup
 
@@ -33,5 +30,5 @@ automation:
       - service: notify.mobile_app
         data:
           title: "🚗 Aurora Alert!"
-          message: "Probability: {{ states('sensor.lumina_observer_aurora_probability_field') }}%"
+          message: "Probability: {{ states('sensor.lumina_observer_aurora_probability_plan') }}%"
 ```
