@@ -14,7 +14,6 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     PERCENTAGE,
-    UnitOfSpeed,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -68,7 +67,7 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
     LuminaSensorDescription(
         key="solar_wind_speed",
         translation_key="solar_wind_speed",
-        native_unit_of_measurement=UnitOfSpeed.KILOMETERS_PER_SECOND,
+        native_unit_of_measurement="km/s",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.SPEED,
         icon="mdi:weather-windy",

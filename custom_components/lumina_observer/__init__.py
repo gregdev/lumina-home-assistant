@@ -19,6 +19,9 @@ from homeassistant.helpers.entity import DeviceInfo
 from .const import DOMAIN
 from .websocket import LuminaWebSocketClient
 
+# Pre-import platforms to avoid blocking import_module in the event loop
+from . import sensor, binary_sensor  # noqa: F401
+
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.BINARY_SENSOR]
