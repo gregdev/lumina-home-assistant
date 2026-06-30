@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Lumina Observer",
+        "description": "Connect to the Lumina Observer aurora prediction stream.\n\nGet your API key at [lumina.observer]({api_url}).\nKeys are prefixed with `lumina_`.",
+        "data": {
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "api_key": "API Key"
+        }
+      }
+    },
+    "error": {
+      "invalid_latitude": "Latitude must be between -90 and 90.",
+      "invalid_longitude": "Longitude must be between -180 and 180.",
+      "invalid_api_key": "API key must start with 'lumina_'."
+    },
+    "abort": {
+      "already_configured": "This location is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "score": {
+        "name": "Space weather score"
+      },
+      "aurora_probability_field": {
+        "name": "Aurora probability (now)"
+      },
+      "aurora_probability_plan": {
+        "name": "Aurora probability (later)"
+      },
+      "solar_wind_speed": {
+        "name": "Solar wind speed"
+      },
+      "solar_wind_density": {
+        "name": "Solar wind density"
+      },
+      "imf_bz": {
+        "name": "IMF Bz"
+      },
+      "imf_bt": {
+        "name": "IMF Bt"
+      },
+      "hemispheric_power": {
+        "name": "Hemispheric power"
+      },
+      "sqm": {
+        "name": "Sky quality"
+      },
+      "confidence": {
+        "name": "Data confidence"
+      },
+      "magnetotail_energy_state": {
+        "name": "Magnetotail state"
+      },
+      "magnetotail_energy_ratio": {
+        "name": "Magnetotail energy ratio"
+      },
+      "upcoming_cme_count": {
+        "name": "Incoming CMEs"
+      }
+    },
+    "binary_sensor": {
+      "worth_driving": {
+        "name": "Worth driving"
+      }
+    }
+  }
+}
