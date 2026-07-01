@@ -27,6 +27,7 @@ async def async_setup_entry(
 class LuminaWorthDrivingBinarySensor(BinarySensorEntity):
     """Binary sensor for the worth_driving recommendation."""
 
+    _attr_has_entity_name = True
     entity_description = BinarySensorEntityDescription(
         key="worth_driving",
         translation_key="worth_driving",

@@ -194,6 +194,7 @@ async def async_setup_entry(
 class LuminaSensor(SensorEntity):
     """Representation of a Lumina Observer sensor."""
 
+    _attr_has_entity_name = True
     entity_description: LuminaSensorDescription
 
     def __init__(
