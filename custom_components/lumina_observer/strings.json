@@ -22,20 +22,20 @@
   },
   "entity": {
     "sensor": {
-      "score": {
-        "name": "Space weather score"
-      },
       "aurora_probability_field": {
         "name": "Aurora probability (field)"
       },
       "aurora_probability_plan": {
         "name": "Aurora probability (plan)"
       },
+      "aurora_score": {
+        "name": "Aurora score"
+      },
+      "aurora_confidence": {
+        "name": "Data confidence"
+      },
       "solar_wind_speed": {
         "name": "Solar wind speed"
-      },
-      "solar_wind_density": {
-        "name": "Solar wind density"
       },
       "imf_bz": {
         "name": "IMF Bz"
@@ -43,28 +43,67 @@
       "imf_bt": {
         "name": "IMF Bt"
       },
+      "dynamic_pressure": {
+        "name": "Dynamic pressure"
+      },
+      "kp_index": {
+        "name": "Kp index"
+      },
       "hemispheric_power": {
         "name": "Hemispheric power"
       },
-      "sqm": {
+      "magnetotail_energy": {
+        "name": "Magnetotail energy"
+      },
+      "field_outlook": {
+        "name": "Field outlook"
+      },
+      "estimated_storm_level": {
+        "name": "Estimated storm level"
+      },
+      "substorm_probability": {
+        "name": "Substorm probability"
+      },
+      "sky_quality": {
         "name": "Sky quality"
       },
-      "confidence": {
-        "name": "Data confidence"
+      "oval_distance": {
+        "name": "Oval distance"
       },
-      "magnetotail_energy_state": {
-        "name": "Magnetotail state"
+      "visibility_factor": {
+        "name": "Visibility factor"
       },
-      "magnetotail_energy_ratio": {
-        "name": "Magnetotail energy ratio"
-      },
-      "upcoming_cme_count": {
+      "incoming_cme_count": {
         "name": "Incoming CMEs"
+      },
+      "coronal_hole_hss": {
+        "name": "Coronal hole HSS"
+      },
+      "cme_shock_detected": {
+        "name": "CME shock detected"
+      },
+      "proton_precursor": {
+        "name": "Proton precursor"
+      },
+      "pressure_pulse_active": {
+        "name": "Pressure pulse active"
+      },
+      "hss_arrival": {
+        "name": "HSS arrival"
       }
     },
     "binary_sensor": {
       "worth_driving": {
         "name": "Worth driving"
+      },
+      "substorm_active": {
+        "name": "Substorm active"
+      },
+      "cme_incoming": {
+        "name": "CME incoming"
+      },
+      "bz_southward": {
+        "name": "Bz southward"
       }
     }
   }

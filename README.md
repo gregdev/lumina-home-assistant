@@ -72,9 +72,9 @@ automation:
 ```
 
 ```yaml
-# Dashboard gauge for space weather score
+# Dashboard gauge for plan-mode aurora probability
 type: gauge
-entity: sensor.lumina_observer_score
+entity: sensor.lumina_observer_aurora_probability_plan
 min: 0
 max: 100
 severity:
