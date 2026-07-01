@@ -43,7 +43,7 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
-        icon="mdi:weather-aurora",
+        icon="mdi:forest",
         value_fn=lambda d: (
             round(d.prediction["auroraProbabilityField"] * 100, 1)
             if d.prediction and "auroraProbabilityField" in d.prediction
@@ -56,7 +56,7 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
-        icon="mdi:road-variant",
+        icon="mdi:sofa-single",
         value_fn=lambda d: (
             round(d.prediction["auroraProbabilityPlan"] * 100, 1)
             if d.prediction and "auroraProbabilityPlan" in d.prediction

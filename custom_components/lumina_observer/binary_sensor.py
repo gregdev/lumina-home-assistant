@@ -31,7 +31,7 @@ class LuminaWorthDrivingBinarySensor(BinarySensorEntity):
     entity_description = BinarySensorEntityDescription(
         key="worth_driving",
         translation_key="worth_driving",
-        icon="mdi:car",
+        icon="mdi:car-side",
     )
 
     def __init__(self, data: LuminaData) -> None:

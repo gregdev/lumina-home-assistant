@@ -26,10 +26,10 @@
         "name": "Space weather score"
       },
       "aurora_probability_field": {
-        "name": "Aurora probability (now)"
+        "name": "Aurora probability (field)"
       },
       "aurora_probability_plan": {
-        "name": "Aurora probability (later)"
+        "name": "Aurora probability (plan)"
       },
       "solar_wind_speed": {
         "name": "Solar wind speed"
