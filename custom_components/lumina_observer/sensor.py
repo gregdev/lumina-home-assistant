@@ -42,10 +42,10 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
         translation_key="aurora_probability_field",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        suggested_display_precision=1,
+        suggested_display_precision=0,
         icon="mdi:forest",
         value_fn=lambda d: (
-            round(d.prediction["auroraProbabilityField"] * 100, 1)
+            round(d.prediction["auroraProbabilityField"] * 100)
             if d.prediction and "auroraProbabilityField" in d.prediction
             else None
         ),
@@ -55,10 +55,10 @@ SENSORS: tuple[LuminaSensorDescription, ...] = (
         translation_key="aurora_probability_plan",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        suggested_display_precision=1,
+        suggested_display_precision=0,
         icon="mdi:sofa-single",
         value_fn=lambda d: (
-            round(d.prediction["auroraProbabilityPlan"] * 100, 1)
+            round(d.prediction["auroraProbabilityPlan"] * 100)
             if d.prediction and "auroraProbabilityPlan" in d.prediction
             else None
         ),
@@ -227,12 +227,12 @@ class LuminaSensor(SensorEntity):
             "magnetotail_energy_ratio": prediction.get("magnetotailEnergyState", {}).get("energyRatio"),
             "upcoming_cme_count": len(prediction.get("upcomingCmeImpacts", [])),
             "field_probability_pct": (
-                round(prediction["auroraProbabilityField"] * 100, 1)
+                round(prediction["auroraProbabilityField"] * 100)
                 if "auroraProbabilityField" in prediction
                 else None
             ),
             "plan_probability_pct": (
-                round(prediction["auroraProbabilityPlan"] * 100, 1)
+                round(prediction["auroraProbabilityPlan"] * 100)
                 if "auroraProbabilityPlan" in prediction
                 else None
             ),
