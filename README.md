@@ -48,8 +48,8 @@ Copy the `custom_components/lumina_observer/` folder into your Home Assistant `c
 
 1. Go to **Settings → Devices & Services → Add Integration → Lumina Observer**
 2. Enter your:
-   - **Latitude** (e.g. `-35.0` for Canberra)
-   - **Longitude** (e.g. `149.0`)
+   - **Latitude** (eg. `-34.9` if you're a fellow Adelaidean)
+   - **Longitude** (eg. `138.5`)
    - **API Key** (starts with `lumina_`)
 
 ## Automations
